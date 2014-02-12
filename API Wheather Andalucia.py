@@ -11,8 +11,9 @@ print'7. Malaga'
 print'8. Sevilla'
 
 parametro = int(raw_input("De que ciudad quieres saber la temperatura actual?"))
-capital = ['Madrid','Almeria','Cadiz','Cordoba','Granada','Huelva','Jaen','Malaga','Sevilla']
-#Start Wheather, go to URL
+parametro = parametro - 1
+capital = ['Almeria','Cadiz','Cordoba','Granada','Huelva','Jaen','Malaga','Sevilla']
+
 fichero = requests.get('http://api.openweathermap.org/data/2.5/weather/', params={'q':'%s,spain' %capital[parametro]})
 dicc=json.loads(fichero.text)
 fel = int(dicc['main']['temp'])
