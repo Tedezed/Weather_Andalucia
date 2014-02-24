@@ -1,18 +1,14 @@
 import requests
 import json
+capital = ['Almeria','Cadiz','Cordoba','Granada','Huelva','Jaen','Malaga','Sevilla']
+val = 1
 
-print'1. Almeria'
-print'2. Cadiz'
-print'3. Cordoba'
-print'4. Granada'
-print'5. Huelva'
-print'6. Jaen'
-print'7. Malaga'
-print'8. Sevilla'
+for num in capital:
+	print val,'.',num
+	val = val + 1
 
 parametro = int(raw_input("De que ciudad quieres saber la temperatura actual?"))
 parametro = parametro - 1
-capital = ['Almeria','Cadiz','Cordoba','Granada','Huelva','Jaen','Malaga','Sevilla']
 
 fichero = requests.get('http://api.openweathermap.org/data/2.5/weather/', params={'q':'%s,spain' %capital[parametro]})
 dicc=json.loads(fichero.text)
